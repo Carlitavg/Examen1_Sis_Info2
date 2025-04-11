@@ -27,18 +27,6 @@
 				"type": "decimal",
 				"precision": 3,
 				"scale": 3
-			},
-			{
-				"name": "NORM_ATTRACTION_INDEX",
-				"type": "decimal",
-				"precision": 4,
-				"scale": 3
-			},
-			{
-				"name": "NORM_RESTAURANT_INDEX",
-				"type": "decimal",
-				"precision": 4,
-				"scale": 3
 			}
 		],
 		"typeProperties": {
