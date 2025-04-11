@@ -46,14 +46,12 @@
 				"scale": 3
 			},
 			{
-				"name": "CITY_ID",
-				"type": "int",
-				"precision": 10
+				"name": "CITY",
+				"type": "varchar"
 			},
 			{
-				"name": "DAY_ID",
-				"type": "int",
-				"precision": 10
+				"name": "DAY_NAME",
+				"type": "varchar"
 			},
 			{
 				"name": "ROOM_TYPE_ID",
