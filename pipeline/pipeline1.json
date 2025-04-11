@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "df_dim_day",
+				"name": "df_dim_city",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_dim_day",
+						"referenceName": "df_dim_city",
 						"type": "DataFlowReference"
 					},
 					"compute": {
