@@ -1,5 +1,5 @@
 {
-	"name": "dim_day",
+	"name": "dim_city",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "dw_airbnb",
@@ -12,13 +12,13 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "DAY_NAME",
+				"name": "CITY",
 				"type": "varchar"
 			}
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "DIM_DAY"
+			"table": "DIM_CITY"
 		}
 	}
 }
