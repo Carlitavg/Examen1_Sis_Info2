@@ -1,0 +1,79 @@
+{
+	"name": "dim_hechos_airbnb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_airbnb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "dw"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "HECHOS_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PRICE",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "CLEANLINESS_RATING",
+				"type": "decimal",
+				"precision": 2,
+				"scale": 2
+			},
+			{
+				"name": "GUEST_SATISFACTION",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ATTRACTION_INDEX",
+				"type": "decimal",
+				"precision": 4,
+				"scale": 3
+			},
+			{
+				"name": "RESTAURANT_INDEX",
+				"type": "decimal",
+				"precision": 5,
+				"scale": 3
+			},
+			{
+				"name": "CITY_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DAY_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ROOM_TYPE_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "HOST_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "LOCATION_ID",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "HECHOS_AIRBNB"
+		}
+	}
+}
