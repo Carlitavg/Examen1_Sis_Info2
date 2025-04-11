@@ -1,0 +1,91 @@
+{
+	"name": "df_hechos_airbnb",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "aemf1_csv",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dim_hechos_airbnb",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          City as string,",
+				"          Price as string,",
+				"          Day as string,",
+				"          {Room Type} as string,",
+				"          {Shared Room} as string,",
+				"          {Private Room} as string,",
+				"          {Person Capacity} as string,",
+				"          Superhost as string,",
+				"          {Multiple Rooms} as string,",
+				"          Business as string,",
+				"          {Cleanliness Rating} as decimal(10,3),",
+				"          {Guest Satisfaction} as string,",
+				"          Bedrooms as string,",
+				"          {City Center (km)} as string,",
+				"          {Metro Distance (km)} as string,",
+				"          {Attraction Index} as string,",
+				"          {Normalised Attraction Index} as string,",
+				"          {Restraunt Index} as string,",
+				"          {Normalised Restraunt Index} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 derive(Price = iif(isNull(Price), toDecimal(0,10,2), toDecimal(Price,10,2))",
+				") ~> derivedColumn1",
+				"derivedColumn1 sort(desc(Price, true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          HECHOS_ID as integer,",
+				"          PRICE as decimal(10,2),",
+				"          CLEANLINESS_RATING as decimal(2,2),",
+				"          GUEST_SATISFACTION as integer,",
+				"          ATTRACTION_INDEX as decimal(4,3),",
+				"          RESTAURANT_INDEX as decimal(5,3),",
+				"          CITY as string,",
+				"          DAY_NAME as string,",
+				"          ROOM_TYPE_ID as integer,",
+				"          HOST_ID as integer,",
+				"          LOCATION_ID as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          PRICE = Price,",
+				"          GUEST_SATISFACTION = {Guest Satisfaction},",
+				"          CITY = City",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}
