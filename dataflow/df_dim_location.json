@@ -56,9 +56,7 @@
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 select(mapColumn(",
 				"          {City Center (km)},",
-				"          {Metro Distance (km)},",
-				"          {Normalised Attraction Index},",
-				"          {Normalised Restraunt Index}",
+				"          {Metro Distance (km)}",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
@@ -81,9 +79,7 @@
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
 				"          CITY_CENTER_KM = {City Center (km)},",
-				"          METRO_DISTANCE_KM = {Metro Distance (km)},",
-				"          NORM_ATTRACTION_INDEX = {Normalised Attraction Index},",
-				"          NORM_RESTAURANT_INDEX = {Normalised Restraunt Index}",
+				"          METRO_DISTANCE_KM = {Metro Distance (km)}",
 				"     )) ~> sink1"
 			]
 		}
