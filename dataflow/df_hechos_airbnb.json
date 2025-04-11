@@ -74,11 +74,13 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError',",
+				"     errorHandlingOption: 'allErrors',",
+				"     transactionCommit: 'single',",
+				"     reportSuccessOnError: false,",
 				"     mapColumn(",
 				"          PRICE = Price,",
-				"          GUEST_SATISFACTION = {Guest Satisfaction},",
-				"          CITY = City",
+				"          CITY = City,",
+				"          DAY_NAME = Day",
 				"     )) ~> sink1"
 			]
 		}
